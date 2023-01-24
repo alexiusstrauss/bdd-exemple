@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    image: bdd-exemple
+    container_name: bdd-exemple-app
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      envfile: .env
+    command: sh -c "echo Rodando testes de BDD && pipenv run behave && tail -f /dev/null"
